@@ -5,4 +5,8 @@ declare(strict_types=1);
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/user', static fn (Request $request) => $request->user())->middleware('auth:sanctum');
+Route::middleware(['auth:sanctum', 'verified'])->group(static function (): void {
+    Route::prefix('standups')->as('standups:')->group(
+        base_path('routes/api/stand-ups.php'),
+    );
+});

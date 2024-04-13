@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
+use App\Enums\Mood;
 use App\Models\Department;
 use App\Models\StandUp;
 use App\Models\User;
@@ -19,10 +20,13 @@ final class StandUpFactory extends Factory
     public function definition(): array
     {
         return [
-            'mood' => 'awesome',
+            'mood' => $this->faker->randomElement(
+                array: Mood::cases(),
+            ),
             'tasks' => $this->faker->realText(),
             'blockers' => $this->faker->realText(),
             'questions' => $this->faker->realText(),
+            'comments' => $this->faker->realText(),
             'department_id' => Department::factory(),
             'user_id' => User::factory(),
         ];

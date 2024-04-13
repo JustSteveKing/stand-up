@@ -1,0 +1,322 @@
+name: Endpoints
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/standups
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      mood:
+        name: mood
+        description: ''
+        required: true
+        example: excited
+        type: string
+        enumValues:
+          - happy
+          - sad
+          - excited
+          - frustrated
+          - tired
+          - neutral
+          - angry
+          - anxious
+          - optimistic
+          - pensive
+          - surprised
+          - sick
+          - confident
+          - disappointed
+          - amused
+          - relieved
+          - indifferent
+          - grateful
+          - inspired
+          - confused
+        exampleWasSpecified: false
+        custom: []
+      tasks:
+        name: tasks
+        description: 'Must be at least 2 characters.'
+        required: true
+        example: wyjjbbdxfbhtmohodebdsdzwfscofqxpdrbvavwxwziqqedigccr
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      blockers:
+        name: blockers
+        description: 'Must be at least 2 characters.'
+        required: false
+        example: nbnsjsxlbvpnyctrvdvmxtltsyjswwqzfygdaoxhvhtshyfdicfvfargjplqnwuniwtgknc
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      questions:
+        name: questions
+        description: 'Must be at least 2 characters.'
+        required: false
+        example: fopwejldqxdmhr
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      comments:
+        name: comments
+        description: 'Must be at least 2 characters.'
+        required: false
+        example: vkdgxsjfqwcpxwnbopaiqepmpdcykxpwfrhbwpkazdiypohhsntiabgmvpgg
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      department:
+        name: department
+        description: ''
+        required: true
+        example: illum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      mood: excited
+      tasks: wyjjbbdxfbhtmohodebdsdzwfscofqxpdrbvavwxwziqqedigccr
+      blockers: nbnsjsxlbvpnyctrvdvmxtltsyjswwqzfygdaoxhvhtshyfdicfvfargjplqnwuniwtgknc
+      questions: fopwejldqxdmhr
+      comments: vkdgxsjfqwcpxwnbopaiqepmpdcykxpwfrhbwpkazdiypohhsntiabgmvpgg
+      department: illum
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/standups/{uuid}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      uuid:
+        name: uuid
+        description: ''
+        required: true
+        example: 781ecdc6-e49d-317a-ae6a-36bd3af635cf
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      uuid: 781ecdc6-e49d-317a-ae6a-36bd3af635cf
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/standups/{standUp_id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      standUp_id:
+        name: standUp_id
+        description: 'The ID of the standUp.'
+        required: true
+        example: laboriosam
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      standUp_id: laboriosam
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      mood:
+        name: mood
+        description: ''
+        required: true
+        example: angry
+        type: string
+        enumValues:
+          - happy
+          - sad
+          - excited
+          - frustrated
+          - tired
+          - neutral
+          - angry
+          - anxious
+          - optimistic
+          - pensive
+          - surprised
+          - sick
+          - confident
+          - disappointed
+          - amused
+          - relieved
+          - indifferent
+          - grateful
+          - inspired
+          - confused
+        exampleWasSpecified: false
+        custom: []
+      tasks:
+        name: tasks
+        description: 'Must be at least 2 characters.'
+        required: true
+        example: tjwosfbpmqelthlptzvhanewizhvdmeagmktbjalcpfmeunyisngqrrrfqkcuoxnqsnkmgcdeofc
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      blockers:
+        name: blockers
+        description: 'Must be at least 2 characters.'
+        required: false
+        example: dhuiornstggwisruvhsjjeqkofzgvntomasqg
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      questions:
+        name: questions
+        description: 'Must be at least 2 characters.'
+        required: false
+        example: syuwqszpzgvrhvkqrhzewccoynqinmqdebuthhtqjbqeeekhyvrmsjvgqvabqtyovgeieddbzm
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      comments:
+        name: comments
+        description: 'Must be at least 2 characters.'
+        required: false
+        example: zjtwgwnbcrcblpkipgjouotmactjaljg
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      department:
+        name: department
+        description: ''
+        required: true
+        example: corrupti
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      mood: angry
+      tasks: tjwosfbpmqelthlptzvhanewizhvdmeagmktbjalcpfmeunyisngqrrrfqkcuoxnqsnkmgcdeofc
+      blockers: dhuiornstggwisruvhsjjeqkofzgvntomasqg
+      questions: syuwqszpzgvrhvkqrhzewccoynqinmqdebuthhtqjbqeeekhyvrmsjvgqvabqtyovgeieddbzm
+      comments: zjtwgwnbcrcblpkipgjouotmactjaljg
+      department: corrupti
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/standups/{standUp_id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      standUp_id:
+        name: standUp_id
+        description: 'The ID of the standUp.'
+        required: true
+        example: in
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      standUp_id: in
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
