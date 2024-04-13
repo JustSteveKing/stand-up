@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Jetstream\Jetstream;
 
@@ -17,9 +18,9 @@ final class CreateNewUser implements CreatesNewUsers
     use PasswordValidationRules;
 
     /**
-     * Create a newly registered user.
-     *
-     * @param  array<string, string>  $input
+     * @param array<string,string> $input
+     * @return User
+     * @throws ValidationException
      */
     public function create(array $input): User
     {
@@ -31,7 +32,7 @@ final class CreateNewUser implements CreatesNewUsers
         ])->validate();
 
         return DB::transaction(function () use ($input) {
-            return tap(User::create([
+            return tap(User::query()->create([
                 'name' => $input['name'],
                 'email' => $input['email'],
                 'password' => Hash::make($input['password']),
@@ -42,14 +43,14 @@ final class CreateNewUser implements CreatesNewUsers
     }
 
     /**
-     * Create a personal team for the user.
+     * @param User $user
+     * @return void
      */
     protected function createTeam(User $user): void
     {
-        $user->ownedTeams()->save(Team::forceCreate([
+        $user->ownedTeams()->save(Team::query()->create([
             'user_id' => $user->id,
-            'name' => explode(' ', $user->name, 2)[0] . "'s Team",
-            'personal_team' => true,
+            'name' => 'default',
         ]));
     }
 }

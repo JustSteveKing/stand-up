@@ -16,30 +16,37 @@ use Laravel\Jetstream\Jetstream;
 
 final class JetstreamServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     */
-    public function register(): void {}
-
-    /**
-     * Bootstrap any application services.
-     */
     public function boot(): void
     {
+        $this->configureActions();
         $this->configurePermissions();
-
-        Jetstream::createTeamsUsing(CreateTeam::class);
-        Jetstream::updateTeamNamesUsing(UpdateTeamName::class);
-        Jetstream::addTeamMembersUsing(AddTeamMember::class);
-        Jetstream::inviteTeamMembersUsing(InviteTeamMember::class);
-        Jetstream::removeTeamMembersUsing(RemoveTeamMember::class);
-        Jetstream::deleteTeamsUsing(DeleteTeam::class);
-        Jetstream::deleteUsersUsing(DeleteUser::class);
     }
 
-    /**
-     * Configure the roles and permissions that are available within the application.
-     */
+    protected function configureActions(): void
+    {
+        Jetstream::createTeamsUsing(
+            class: CreateTeam::class,
+        );
+        Jetstream::updateTeamNamesUsing(
+            class: UpdateTeamName::class,
+        );
+        Jetstream::addTeamMembersUsing(
+            class: AddTeamMember::class,
+        );
+        Jetstream::inviteTeamMembersUsing(
+            class: InviteTeamMember::class,
+        );
+        Jetstream::removeTeamMembersUsing(
+            class: RemoveTeamMember::class,
+        );
+        Jetstream::deleteTeamsUsing(
+            class: DeleteTeam::class,
+        );
+        Jetstream::deleteUsersUsing(
+            class: DeleteUser::class,
+        );
+    }
+
     protected function configurePermissions(): void
     {
         Jetstream::defaultApiTokenPermissions(['read']);

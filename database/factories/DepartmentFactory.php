@@ -4,23 +4,23 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
+use App\Models\Department;
 use App\Models\Team;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
 
-final class TeamFactory extends Factory
+final class DepartmentFactory extends Factory
 {
     /** @var class-string<Model>  */
-    protected $model = Team::class;
+    protected $model = Department::class;
 
     /** @return array<string,mixed> */
     public function definition(): array
     {
         return [
-            'name' => $this->faker->unique()->company(),
-            'logo' => $this->faker->imageUrl(),
-            'user_id' => User::factory(),
+            'name' => $this->faker->sentence(),
+            'color' => $this->faker->hexColor(),
+            'team_id' => Team::factory(),
         ];
     }
 }

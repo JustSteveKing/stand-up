@@ -7,11 +7,14 @@ namespace App\Actions\Jetstream;
 use App\Models\Team;
 use App\Models\User;
 use Closure;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Contracts\Validation\Rule as RuleContract;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\ValidationException;
 use Laravel\Jetstream\Contracts\InvitesTeamMembers;
 use Laravel\Jetstream\Events\InvitingTeamMember;
 use Laravel\Jetstream\Jetstream;
@@ -21,7 +24,12 @@ use Laravel\Jetstream\Rules\Role;
 final class InviteTeamMember implements InvitesTeamMembers
 {
     /**
-     * Invite a new team member to the given team.
+     * @param User $user
+     * @param Team $team
+     * @param string $email
+     * @param string|null $role
+     * @return void
+     * @throws AuthorizationException
      */
     public function invite(User $user, Team $team, string $email, ?string $role = null): void
     {
@@ -40,7 +48,11 @@ final class InviteTeamMember implements InvitesTeamMembers
     }
 
     /**
-     * Validate the invite member operation.
+     * @param Team $team
+     * @param string $email
+     * @param string|null $role
+     * @return void
+     * @throws ValidationException
      */
     private function validate(Team $team, string $email, ?string $role): void
     {
@@ -55,9 +67,7 @@ final class InviteTeamMember implements InvitesTeamMembers
     }
 
     /**
-     * Get the validation rules for inviting a team member.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\Rule|array|string>
+     * @return array<string,RuleContract|array|string>
      */
     private function rules(Team $team): array
     {
@@ -69,17 +79,19 @@ final class InviteTeamMember implements InvitesTeamMembers
                 }),
             ],
             'role' => Jetstream::hasRoles()
-                            ? ['required', 'string', new Role()]
-                            : null,
+                ? ['required', 'string', new Role()]
+                : null,
         ]);
     }
 
     /**
-     * Ensure that the user is not already on the team.
+     * @param Team $team
+     * @param string $email
+     * @return Closure
      */
     private function ensureUserIsNotAlreadyOnTeam(Team $team, string $email): Closure
     {
-        return function ($validator) use ($team, $email): void {
+        return static function ($validator) use ($team, $email): void {
             $validator->errors()->addIf(
                 $team->hasUserWithEmail($email),
                 'email',

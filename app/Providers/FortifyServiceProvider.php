@@ -8,36 +8,55 @@ use App\Actions\Fortify\CreateNewUser;
 use App\Actions\Fortify\ResetUserPassword;
 use App\Actions\Fortify\UpdateUserPassword;
 use App\Actions\Fortify\UpdateUserProfileInformation;
-use Illuminate\Cache\RateLimiting\Limit;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Str;
 use Laravel\Fortify\Fortify;
 
 final class FortifyServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     */
-    public function register(): void {}
-
-    /**
-     * Bootstrap any application services.
-     */
     public function boot(): void
     {
-        Fortify::createUsersUsing(CreateNewUser::class);
-        Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
-        Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
-        Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
+        $this->registerViews();
+        $this->registerActions();
+    }
 
-        RateLimiter::for('login', function (Request $request) {
-            $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())) . '|' . $request->ip());
+    protected function registerViews(): void
+    {
+        Fortify::loginView(
+            view: 'pages.auth.login',
+        );
+        Fortify::registerView(
+            view: 'pages.auth.register',
+        );
+        Fortify::confirmPasswordView(
+            view: 'pages.auth.passwords.confirm',
+        );
+        Fortify::requestPasswordResetLinkView(
+            view: 'pages.auth.passwords.reset',
+        );
+        Fortify::resetPasswordView(
+            view: 'pages.auth.passwords.reset-password',
+        );
+        Fortify::twoFactorChallengeView(
+            view: 'pages.auth.two-factor-challenge',
+        );
+        Fortify::verifyEmailView(
+            view: 'pages.auth.email.verify',
+        );
+    }
 
-            return Limit::perMinute(5)->by($throttleKey);
-        });
-
-        RateLimiter::for('two-factor', fn(Request $request) => Limit::perMinute(5)->by($request->session()->get('login.id')));
+    protected function registerActions(): void
+    {
+        Fortify::createUsersUsing(
+            callback: CreateNewUser::class,
+        );
+        Fortify::updateUserProfileInformationUsing(
+            callback: UpdateUserProfileInformation::class,
+        );
+        Fortify::updateUserPasswordsUsing(
+            callback: UpdateUserPassword::class,
+        );
+        Fortify::resetUserPasswordsUsing(
+            callback: ResetUserPassword::class,
+        );
     }
 }

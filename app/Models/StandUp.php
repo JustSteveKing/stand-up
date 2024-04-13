@@ -7,37 +7,43 @@ namespace App\Models;
 use Carbon\CarbonInterface;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Laravel\Jetstream\Membership as JetstreamMembership;
 
 /**
  * @property string $id
- * @property null|string $role
- * @property string $team_id
+ * @property string $mood
+ * @property string $tasks
+ * @property null|string $blockers
+ * @property null|string $questions
+ * @property string $department_id
  * @property string $user_id
  * @property null|CarbonInterface $created_at
  * @property null|CarbonInterface $updated_at
- * @property Team $team
+ * @property Department $department
  * @property User $user
  */
-final class Membership extends JetstreamMembership
+final class StandUp extends Model
 {
     use HasFactory;
     use HasUuids;
 
-    /** @var array<int,string>  */
+    /** @var array<int,string> */
     protected $fillable = [
-        'role',
-        'team_id',
+        'mood',
+        'tasks',
+        'blockers',
+        'questions',
+        'department_id',
         'user_id',
     ];
 
     /** @return BelongsTo */
-    public function team(): BelongsTo
+    public function department(): BelongsTo
     {
         return $this->belongsTo(
-            related: Team::class,
-            foreignKey: 'team_id',
+            related: Department::class,
+            foreignKey: 'department_id',
         );
     }
 

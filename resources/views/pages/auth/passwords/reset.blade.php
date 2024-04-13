@@ -9,9 +9,9 @@
         </div>
 
         @session('status')
-            <div class="mb-4 font-medium text-sm text-green-600 dark:text-green-400">
-                {{ $value }}
-            </div>
+        <div class="mb-4 font-medium text-sm text-green-600 dark:text-green-400">
+            {{ $value }}
+        </div>
         @endsession
 
         <x-validation-errors class="mb-4" />

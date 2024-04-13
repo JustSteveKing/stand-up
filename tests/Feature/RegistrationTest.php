@@ -27,5 +27,5 @@ test('new users can register', function (): void {
     ]);
 
     $this->assertAuthenticated();
-    $response->assertRedirect(route('dashboard', absolute: false));
+    $response->assertRedirect(route('/', absolute: false));
 })->skip(fn() => ! Features::enabled(Features::registration()), 'Registration support is not enabled.');

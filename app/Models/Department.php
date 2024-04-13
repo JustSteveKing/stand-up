@@ -5,31 +5,33 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Carbon\CarbonInterface;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Laravel\Jetstream\Membership as JetstreamMembership;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property string $id
- * @property null|string $role
+ * @property string $name
+ * @property null|string $color
  * @property string $team_id
- * @property string $user_id
  * @property null|CarbonInterface $created_at
  * @property null|CarbonInterface $updated_at
  * @property Team $team
- * @property User $user
+ * @property Collection<StandUp> $standups
  */
-final class Membership extends JetstreamMembership
+final class Department extends Model
 {
     use HasFactory;
     use HasUuids;
 
-    /** @var array<int,string>  */
+    /** @var array<int,string> */
     protected $fillable = [
-        'role',
+        'name',
+        'color',
         'team_id',
-        'user_id',
     ];
 
     /** @return BelongsTo */
@@ -41,12 +43,12 @@ final class Membership extends JetstreamMembership
         );
     }
 
-    /** @return BelongsTo */
-    public function user(): BelongsTo
+    /** @return HasMany */
+    public function standups(): HasMany
     {
-        return $this->belongsTo(
-            related: User::class,
-            foreignKey: 'user_id',
+        return $this->hasMany(
+            related: Standup::class,
+            foreignKey: 'department_id',
         );
     }
 }

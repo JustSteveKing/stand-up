@@ -9,14 +9,14 @@ use Illuminate\Support\Facades\Schema;
 return new class () extends Migration {
     public function up(): void
     {
-        Schema::create('teams', static function (Blueprint $table): void {
+        Schema::create('departments', static function (Blueprint $table): void {
             $table->uuid('id')->primary();
 
             $table->string('name');
-            $table->string('logo')->nullable();
+            $table->string('color')->nullable();
 
             $table
-                ->foreignUuid('user_id')
+                ->foreignUuid('team_id')
                 ->index()
                 ->constrained()
                 ->cascadeOnDelete();
@@ -27,6 +27,6 @@ return new class () extends Migration {
 
     public function down(): void
     {
-        Schema::dropIfExists('teams');
+        Schema::dropIfExists('departments');
     }
 };
