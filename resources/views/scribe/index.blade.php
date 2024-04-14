@@ -71,10 +71,7 @@
                     <a href="#endpoints">Endpoints</a>
                 </li>
                                     <ul id="tocify-subheader-endpoints" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-standups">
-                                <a href="#endpoints-POSTapi-standups">POST api/standups</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-standups--uuid-">
+                                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-standups--uuid-">
                                 <a href="#endpoints-GETapi-standups--uuid-">GET api/standups/{uuid}</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-PUTapi-standups--standUp_id-">
@@ -93,6 +90,9 @@
                                                     <li class="tocify-item level-2" data-unique="stand-ups-GETapi-standups">
                                 <a href="#stand-ups-GETapi-standups">Browse Stand Ups</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="stand-ups-POSTapi-standups">
+                                <a href="#stand-ups-POSTapi-standups">Create a new Stand Up</a>
+                            </li>
                                                                         </ul>
                             </ul>
             </div>
@@ -104,7 +104,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: April 13, 2024</li>
+        <li>Last updated: April 14, 2024</li>
     </ul>
 </div>
 
@@ -126,203 +126,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 
     
 
-                                <h2 id="endpoints-POSTapi-standups">POST api/standups</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-POSTapi-standups">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/standups" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"mood\": \"excited\",
-    \"tasks\": \"wyjjbbdxfbhtmohodebdsdzwfscofqxpdrbvavwxwziqqedigccr\",
-    \"blockers\": \"nbnsjsxlbvpnyctrvdvmxtltsyjswwqzfygdaoxhvhtshyfdicfvfargjplqnwuniwtgknc\",
-    \"questions\": \"fopwejldqxdmhr\",
-    \"comments\": \"vkdgxsjfqwcpxwnbopaiqepmpdcykxpwfrhbwpkazdiypohhsntiabgmvpgg\",
-    \"department\": \"illum\"
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/standups"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "mood": "excited",
-    "tasks": "wyjjbbdxfbhtmohodebdsdzwfscofqxpdrbvavwxwziqqedigccr",
-    "blockers": "nbnsjsxlbvpnyctrvdvmxtltsyjswwqzfygdaoxhvhtshyfdicfvfargjplqnwuniwtgknc",
-    "questions": "fopwejldqxdmhr",
-    "comments": "vkdgxsjfqwcpxwnbopaiqepmpdcykxpwfrhbwpkazdiypohhsntiabgmvpgg",
-    "department": "illum"
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-standups">
-</span>
-<span id="execution-results-POSTapi-standups" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-standups"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-standups"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTapi-standups" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-standups">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-POSTapi-standups" data-method="POST"
-      data-path="api/standups"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-standups', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-standups"
-                    onclick="tryItOut('POSTapi-standups');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-standups"
-                    onclick="cancelTryOut('POSTapi-standups');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-standups"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/standups</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-standups"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-standups"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>mood</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="mood"                data-endpoint="POSTapi-standups"
-               value="excited"
-               data-component="body">
-    <br>
-<p>Example: <code>excited</code></p>
-Must be one of:
-<ul style="list-style-type: square;"><li><code>happy</code></li> <li><code>sad</code></li> <li><code>excited</code></li> <li><code>frustrated</code></li> <li><code>tired</code></li> <li><code>neutral</code></li> <li><code>angry</code></li> <li><code>anxious</code></li> <li><code>optimistic</code></li> <li><code>pensive</code></li> <li><code>surprised</code></li> <li><code>sick</code></li> <li><code>confident</code></li> <li><code>disappointed</code></li> <li><code>amused</code></li> <li><code>relieved</code></li> <li><code>indifferent</code></li> <li><code>grateful</code></li> <li><code>inspired</code></li> <li><code>confused</code></li></ul>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>tasks</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="tasks"                data-endpoint="POSTapi-standups"
-               value="wyjjbbdxfbhtmohodebdsdzwfscofqxpdrbvavwxwziqqedigccr"
-               data-component="body">
-    <br>
-<p>Must be at least 2 characters. Example: <code>wyjjbbdxfbhtmohodebdsdzwfscofqxpdrbvavwxwziqqedigccr</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>blockers</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-                              name="blockers"                data-endpoint="POSTapi-standups"
-               value="nbnsjsxlbvpnyctrvdvmxtltsyjswwqzfygdaoxhvhtshyfdicfvfargjplqnwuniwtgknc"
-               data-component="body">
-    <br>
-<p>Must be at least 2 characters. Example: <code>nbnsjsxlbvpnyctrvdvmxtltsyjswwqzfygdaoxhvhtshyfdicfvfargjplqnwuniwtgknc</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>questions</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-                              name="questions"                data-endpoint="POSTapi-standups"
-               value="fopwejldqxdmhr"
-               data-component="body">
-    <br>
-<p>Must be at least 2 characters. Example: <code>fopwejldqxdmhr</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>comments</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-                              name="comments"                data-endpoint="POSTapi-standups"
-               value="vkdgxsjfqwcpxwnbopaiqepmpdcykxpwfrhbwpkazdiypohhsntiabgmvpgg"
-               data-component="body">
-    <br>
-<p>Must be at least 2 characters. Example: <code>vkdgxsjfqwcpxwnbopaiqepmpdcykxpwfrhbwpkazdiypohhsntiabgmvpgg</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>department</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="department"                data-endpoint="POSTapi-standups"
-               value="illum"
-               data-component="body">
-    <br>
-<p>Example: <code>illum</code></p>
-        </div>
-        </form>
-
-                    <h2 id="endpoints-GETapi-standups--uuid-">GET api/standups/{uuid}</h2>
+                                <h2 id="endpoints-GETapi-standups--uuid-">GET api/standups/{uuid}</h2>
 
 <p>
 </p>
@@ -335,14 +139,14 @@ Must be one of:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/standups/781ecdc6-e49d-317a-ae6a-36bd3af635cf" \
+    --get "http://localhost/api/standups/9bcdf906-ba6f-4fcb-9789-a1dc14cc1fb0" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/standups/781ecdc6-e49d-317a-ae6a-36bd3af635cf"
+    "http://localhost/api/standups/9bcdf906-ba6f-4fcb-9789-a1dc14cc1fb0"
 );
 
 const headers = {
@@ -451,10 +255,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="uuid"                data-endpoint="GETapi-standups--uuid-"
-               value="781ecdc6-e49d-317a-ae6a-36bd3af635cf"
+               value="9bcdf906-ba6f-4fcb-9789-a1dc14cc1fb0"
                data-component="url">
     <br>
-<p>Example: <code>781ecdc6-e49d-317a-ae6a-36bd3af635cf</code></p>
+<p>Example: <code>9bcdf906-ba6f-4fcb-9789-a1dc14cc1fb0</code></p>
             </div>
                     </form>
 
@@ -471,23 +275,23 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/standups/laboriosam" \
+    "http://localhost/api/standups/9bcdf906-ba6f-4fcb-9789-a1dc14cc1fb0" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"mood\": \"angry\",
-    \"tasks\": \"tjwosfbpmqelthlptzvhanewizhvdmeagmktbjalcpfmeunyisngqrrrfqkcuoxnqsnkmgcdeofc\",
-    \"blockers\": \"dhuiornstggwisruvhsjjeqkofzgvntomasqg\",
-    \"questions\": \"syuwqszpzgvrhvkqrhzewccoynqinmqdebuthhtqjbqeeekhyvrmsjvgqvabqtyovgeieddbzm\",
-    \"comments\": \"zjtwgwnbcrcblpkipgjouotmactjaljg\",
-    \"department\": \"corrupti\"
+    \"mood\": \"sick\",
+    \"tasks\": \"caxncyyokxpqxkhvzllmrqsprvljpnzrvlgrfnrvkbhqnutivfzjsbuoiqdvqwqxv\",
+    \"blockers\": \"sramjjgfqztojpmejpaxcidliqrsgsuijvtedhteoasbvbvhvnpidzadoewvjhryjjwonsbvshjate\",
+    \"questions\": \"lzosfiixyhnkgs\",
+    \"comments\": \"zjrgkcrfqlgagrgtyjsdvfbybwyikxuucroairqfkphpxotaznuqwmkekbzxw\",
+    \"department\": \"aut\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/standups/laboriosam"
+    "http://localhost/api/standups/9bcdf906-ba6f-4fcb-9789-a1dc14cc1fb0"
 );
 
 const headers = {
@@ -496,12 +300,12 @@ const headers = {
 };
 
 let body = {
-    "mood": "angry",
-    "tasks": "tjwosfbpmqelthlptzvhanewizhvdmeagmktbjalcpfmeunyisngqrrrfqkcuoxnqsnkmgcdeofc",
-    "blockers": "dhuiornstggwisruvhsjjeqkofzgvntomasqg",
-    "questions": "syuwqszpzgvrhvkqrhzewccoynqinmqdebuthhtqjbqeeekhyvrmsjvgqvabqtyovgeieddbzm",
-    "comments": "zjtwgwnbcrcblpkipgjouotmactjaljg",
-    "department": "corrupti"
+    "mood": "sick",
+    "tasks": "caxncyyokxpqxkhvzllmrqsprvljpnzrvlgrfnrvkbhqnutivfzjsbuoiqdvqwqxv",
+    "blockers": "sramjjgfqztojpmejpaxcidliqrsgsuijvtedhteoasbvbvhvnpidzadoewvjhryjjwonsbvshjate",
+    "questions": "lzosfiixyhnkgs",
+    "comments": "zjrgkcrfqlgagrgtyjsdvfbybwyikxuucroairqfkphpxotaznuqwmkekbzxw",
+    "department": "aut"
 };
 
 fetch(url, {
@@ -590,10 +394,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="standUp_id"                data-endpoint="PUTapi-standups--standUp_id-"
-               value="laboriosam"
+               value="9bcdf906-ba6f-4fcb-9789-a1dc14cc1fb0"
                data-component="url">
     <br>
-<p>The ID of the standUp. Example: <code>laboriosam</code></p>
+<p>The ID of the standUp. Example: <code>9bcdf906-ba6f-4fcb-9789-a1dc14cc1fb0</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -602,10 +406,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="mood"                data-endpoint="PUTapi-standups--standUp_id-"
-               value="angry"
+               value="sick"
                data-component="body">
     <br>
-<p>Example: <code>angry</code></p>
+<p>Example: <code>sick</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>happy</code></li> <li><code>sad</code></li> <li><code>excited</code></li> <li><code>frustrated</code></li> <li><code>tired</code></li> <li><code>neutral</code></li> <li><code>angry</code></li> <li><code>anxious</code></li> <li><code>optimistic</code></li> <li><code>pensive</code></li> <li><code>surprised</code></li> <li><code>sick</code></li> <li><code>confident</code></li> <li><code>disappointed</code></li> <li><code>amused</code></li> <li><code>relieved</code></li> <li><code>indifferent</code></li> <li><code>grateful</code></li> <li><code>inspired</code></li> <li><code>confused</code></li></ul>
         </div>
@@ -615,10 +419,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="tasks"                data-endpoint="PUTapi-standups--standUp_id-"
-               value="tjwosfbpmqelthlptzvhanewizhvdmeagmktbjalcpfmeunyisngqrrrfqkcuoxnqsnkmgcdeofc"
+               value="caxncyyokxpqxkhvzllmrqsprvljpnzrvlgrfnrvkbhqnutivfzjsbuoiqdvqwqxv"
                data-component="body">
     <br>
-<p>Must be at least 2 characters. Example: <code>tjwosfbpmqelthlptzvhanewizhvdmeagmktbjalcpfmeunyisngqrrrfqkcuoxnqsnkmgcdeofc</code></p>
+<p>Must be at least 2 characters. Example: <code>caxncyyokxpqxkhvzllmrqsprvljpnzrvlgrfnrvkbhqnutivfzjsbuoiqdvqwqxv</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>blockers</code></b>&nbsp;&nbsp;
@@ -626,10 +430,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="blockers"                data-endpoint="PUTapi-standups--standUp_id-"
-               value="dhuiornstggwisruvhsjjeqkofzgvntomasqg"
+               value="sramjjgfqztojpmejpaxcidliqrsgsuijvtedhteoasbvbvhvnpidzadoewvjhryjjwonsbvshjate"
                data-component="body">
     <br>
-<p>Must be at least 2 characters. Example: <code>dhuiornstggwisruvhsjjeqkofzgvntomasqg</code></p>
+<p>Must be at least 2 characters. Example: <code>sramjjgfqztojpmejpaxcidliqrsgsuijvtedhteoasbvbvhvnpidzadoewvjhryjjwonsbvshjate</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>questions</code></b>&nbsp;&nbsp;
@@ -637,10 +441,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="questions"                data-endpoint="PUTapi-standups--standUp_id-"
-               value="syuwqszpzgvrhvkqrhzewccoynqinmqdebuthhtqjbqeeekhyvrmsjvgqvabqtyovgeieddbzm"
+               value="lzosfiixyhnkgs"
                data-component="body">
     <br>
-<p>Must be at least 2 characters. Example: <code>syuwqszpzgvrhvkqrhzewccoynqinmqdebuthhtqjbqeeekhyvrmsjvgqvabqtyovgeieddbzm</code></p>
+<p>Must be at least 2 characters. Example: <code>lzosfiixyhnkgs</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>comments</code></b>&nbsp;&nbsp;
@@ -648,10 +452,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="comments"                data-endpoint="PUTapi-standups--standUp_id-"
-               value="zjtwgwnbcrcblpkipgjouotmactjaljg"
+               value="zjrgkcrfqlgagrgtyjsdvfbybwyikxuucroairqfkphpxotaznuqwmkekbzxw"
                data-component="body">
     <br>
-<p>Must be at least 2 characters. Example: <code>zjtwgwnbcrcblpkipgjouotmactjaljg</code></p>
+<p>Must be at least 2 characters. Example: <code>zjrgkcrfqlgagrgtyjsdvfbybwyikxuucroairqfkphpxotaznuqwmkekbzxw</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>department</code></b>&nbsp;&nbsp;
@@ -659,10 +463,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="department"                data-endpoint="PUTapi-standups--standUp_id-"
-               value="corrupti"
+               value="aut"
                data-component="body">
     <br>
-<p>Example: <code>corrupti</code></p>
+<p>Example: <code>aut</code></p>
         </div>
         </form>
 
@@ -679,14 +483,14 @@ Must be one of:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/standups/in" \
+    "http://localhost/api/standups/9bcdf906-ba6f-4fcb-9789-a1dc14cc1fb0" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/standups/in"
+    "http://localhost/api/standups/9bcdf906-ba6f-4fcb-9789-a1dc14cc1fb0"
 );
 
 const headers = {
@@ -779,16 +583,16 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="standUp_id"                data-endpoint="DELETEapi-standups--standUp_id-"
-               value="in"
+               value="9bcdf906-ba6f-4fcb-9789-a1dc14cc1fb0"
                data-component="url">
     <br>
-<p>The ID of the standUp. Example: <code>in</code></p>
+<p>The ID of the standUp. Example: <code>9bcdf906-ba6f-4fcb-9789-a1dc14cc1fb0</code></p>
             </div>
                     </form>
 
                 <h1 id="stand-ups">Stand Ups</h1>
 
-    <p>A series of endpoints that allow programatic access to managing stand-ups.</p>
+    <p>A series of endpoints that allow programmatic access to managing stand-ups.</p>
 
                                 <h2 id="stand-ups-GETapi-standups">Browse Stand Ups</h2>
 
@@ -804,7 +608,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/standups" \
+    --get "http://localhost/api/standups?filter%5Bmood%5D=filter%5Bmood%5D%3Dneutral&amp;filter%5Bname%5D=filter%5Bmood%5D%3DRumpelstiltskin&amp;filter%5Bdepartment%5D=Engineering&amp;include=include%3Duser%2Cdepartment.team&amp;sort=sort%3D-mood" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -813,6 +617,16 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-javascript">const url = new URL(
     "http://localhost/api/standups"
 );
+
+const params = {
+    "filter[mood]": "filter[mood]=neutral",
+    "filter[name]": "filter[mood]=Rumpelstiltskin",
+    "filter[department]": "Engineering",
+    "include": "include=user,department.team",
+    "sort": "sort=-mood",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 const headers = {
     "Content-Type": "application/json",
@@ -835,36 +649,36 @@ fetch(url, {
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: &quot;&quot;,
+            &quot;id&quot;: &quot;9bce14da-5b80-444c-9b41-73837f3aa768&quot;,
             &quot;type&quot;: &quot;standUps&quot;,
             &quot;attributes&quot;: {
-                &quot;mood&quot;: &quot;angry&quot;,
-                &quot;tasks&quot;: &quot;WOULD always get into that lovely garden. First, however, she went slowly after it: &#039;I never saw one, or heard of \&quot;Uglification,\&quot;&#039; Alice ventured to ask. &#039;Suppose we change the subject. &#039;Go on with.&quot;,
-                &quot;blockers&quot;: &quot;I wonder what was the matter on, What would become of you? I gave her answer. &#039;They&#039;re done with a little girl or a worm. The question is, Who in the pool as it was all ridges and furrows; the balls.&quot;,
-                &quot;questions&quot;: &quot;I to get dry again: they had to stop and untwist it. After a minute or two, they began moving about again, and put it into his cup of tea, and looked at it, and kept doubling itself up very sulkily.&quot;,
-                &quot;comments&quot;: &quot;Alice, in a large canvas bag, which tied up at this moment the door with his knuckles. It was as much as she ran. &#039;How surprised he&#039;ll be when he sneezes; For he can EVEN finish, if he doesn&#039;t.&quot;,
+                &quot;mood&quot;: &quot;happy&quot;,
+                &quot;tasks&quot;: &quot;Wonderland of long ago: and how she was now more than three.&#039; &#039;Your hair wants cutting,&#039; said the Hatter were having tea at it: a Dormouse was sitting on a little bottle that stood near. The three.&quot;,
+                &quot;blockers&quot;: &quot;This sounded promising, certainly: Alice turned and came flying down upon their faces. There was a large piece out of sight: then it watched the Queen was silent. The Dormouse had closed its eyes by.&quot;,
+                &quot;questions&quot;: &quot;Alice, who felt ready to play with, and oh! ever so many tea-things are put out here?&#039; she asked. &#039;Yes, that&#039;s it,&#039; said the Gryphon. &#039;The reason is,&#039; said the Caterpillar. Alice folded her hands.&quot;,
+                &quot;comments&quot;: &quot;I used to say.&#039; &#039;So he did, so he did,&#039; said the Cat. &#039;I don&#039;t know one,&#039; said Alice, and looking at the moment, &#039;My dear! I shall remember it in a Little Bill It was so large a house, that she was.&quot;,
                 &quot;created&quot;: {
-                    &quot;human&quot;: null,
-                    &quot;timestamp&quot;: null,
-                    &quot;string&quot;: null,
-                    &quot;local&quot;: null
+                    &quot;human&quot;: &quot;0 seconds ago&quot;,
+                    &quot;timestamp&quot;: 1713094154,
+                    &quot;string&quot;: &quot;2024-04-14 11:29:14&quot;,
+                    &quot;local&quot;: &quot;2024-04-14T11:29:14&quot;
                 }
             }
         },
         {
-            &quot;id&quot;: &quot;&quot;,
+            &quot;id&quot;: &quot;9bce14db-146d-4f79-88e3-d8bfe9a656ec&quot;,
             &quot;type&quot;: &quot;standUps&quot;,
             &quot;attributes&quot;: {
-                &quot;mood&quot;: &quot;pensive&quot;,
-                &quot;tasks&quot;: &quot;She was looking at the Lizard as she picked her way into a graceful zigzag, and was looking down at her for a good many little girls eat eggs quite as much as she couldn&#039;t answer either question, it.&quot;,
-                &quot;blockers&quot;: &quot;Alice, &#039;it&#039;s very rude.&#039; The Hatter opened his eyes were nearly out of sight, they were all ornamented with hearts. Next came the guests, mostly Kings and Queens, and among them Alice recognised the.&quot;,
-                &quot;questions&quot;: &quot;After a while she was near enough to look over their slates; &#039;but it doesn&#039;t matter much,&#039; thought Alice, &#039;shall I NEVER get any older than I am in the last few minutes that she had felt quite.&quot;,
-                &quot;comments&quot;: &quot;An obstacle that came between Him, and ourselves, and it. Don&#039;t let him know she liked them best, For this must ever be A secret, kept from all the other was sitting on a little hot tea upon its.&quot;,
+                &quot;mood&quot;: &quot;angry&quot;,
+                &quot;tasks&quot;: &quot;Arithmetic--Ambition, Distraction, Uglification, and Derision.&#039; &#039;I never went to work very carefully, with one eye, How the Owl and the Queen said--&#039; &#039;Get to your places!&#039; shouted the Queen, and in.&quot;,
+                &quot;blockers&quot;: &quot;Hatter. &#039;Nor I,&#039; said the youth, &#039;and your jaws are too weak For anything tougher than suet; Yet you turned a back-somersault in at once.&#039; And in she went. Once more she found a little while.&quot;,
+                &quot;questions&quot;: &quot;See how eagerly the lobsters and the great puzzle!&#039; And she tried the effect of lying down with wonder at the thought that she was ever to get out again. Suddenly she came upon a heap of sticks and.&quot;,
+                &quot;comments&quot;: &quot;THROUGH the earth! How funny it&#039;ll seem to be\&quot;--or if you&#039;d rather not.&#039; &#039;We indeed!&#039; cried the Gryphon. &#039;I mean, what makes them so often, you know.&#039; It was, no doubt: only Alice did not venture to.&quot;,
                 &quot;created&quot;: {
-                    &quot;human&quot;: null,
-                    &quot;timestamp&quot;: null,
-                    &quot;string&quot;: null,
-                    &quot;local&quot;: null
+                    &quot;human&quot;: &quot;0 seconds ago&quot;,
+                    &quot;timestamp&quot;: 1713094154,
+                    &quot;string&quot;: &quot;2024-04-14 11:29:14&quot;,
+                    &quot;local&quot;: &quot;2024-04-14T11:29:14&quot;
                 }
             }
         }
@@ -941,7 +755,287 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>application/json</code></p>
             </div>
-                        </form>
+                            <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>filter[mood]</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="filter[mood]"                data-endpoint="GETapi-standups"
+               value="filter[mood]=neutral"
+               data-component="query">
+    <br>
+<p>Filter the results by mood Example: <code>filter[mood]=neutral</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>happy</code></li> <li><code>sad</code></li> <li><code>excited</code></li> <li><code>frustrated</code></li> <li><code>tired</code></li> <li><code>neutral</code></li> <li><code>angry</code></li> <li><code>anxious</code></li> <li><code>optimistic</code></li> <li><code>pensive</code></li> <li><code>surprised</code></li> <li><code>sick</code></li> <li><code>confident</code></li> <li><code>disappointed</code></li> <li><code>amused</code></li> <li><code>relieved</code></li> <li><code>indifferent</code></li> <li><code>grateful</code></li> <li><code>inspired</code></li> <li><code>confused</code></li></ul>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>filter[name]</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="filter[name]"                data-endpoint="GETapi-standups"
+               value="filter[mood]=Rumpelstiltskin"
+               data-component="query">
+    <br>
+<p>Filter the results by the users name Example: <code>filter[mood]=Rumpelstiltskin</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>filter[department]</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="filter[department]"                data-endpoint="GETapi-standups"
+               value="Engineering"
+               data-component="query">
+    <br>
+<p>Filter the results by the department name Example: <code>Engineering</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>include</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="include"                data-endpoint="GETapi-standups"
+               value="include=user,department.team"
+               data-component="query">
+    <br>
+<p>A comma separated list of relationships to side-load Example: <code>include=user,department.team</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>sort</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="sort"                data-endpoint="GETapi-standups"
+               value="sort=-mood"
+               data-component="query">
+    <br>
+<p>Sort the results based on either the mood, or the created_at Example: <code>sort=-mood</code></p>
+            </div>
+                </form>
+
+                    <h2 id="stand-ups-POSTapi-standups">Create a new Stand Up</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Create a new Stand Up for a specified department, will be assigned to whichever user is authenticated at the time.</p>
+
+<span id="example-requests-POSTapi-standups">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/standups" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"mood\": \"neutral\",
+    \"tasks\": \"Today I will be working on the OpenAPI Specification.\",
+    \"blockers\": \"I am currently being blocked by front-end playing with crayons.\",
+    \"questions\": \"How much wood, could a woodchuck chuck, if a woodchuck, could chuck wood.\",
+    \"comments\": \"Going to the Dentist at 2pm, will make up hours later.\",
+    \"department\": \"1234-1234-1234-1234\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/standups"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "mood": "neutral",
+    "tasks": "Today I will be working on the OpenAPI Specification.",
+    "blockers": "I am currently being blocked by front-end playing with crayons.",
+    "questions": "How much wood, could a woodchuck chuck, if a woodchuck, could chuck wood.",
+    "comments": "Going to the Dentist at 2pm, will make up hours later.",
+    "department": "1234-1234-1234-1234"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-standups">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: {
+        &quot;id&quot;: &quot;9bce14db-cdd1-4a8a-86cb-e05f9f918d20&quot;,
+        &quot;type&quot;: &quot;standUps&quot;,
+        &quot;attributes&quot;: {
+            &quot;mood&quot;: &quot;sick&quot;,
+            &quot;tasks&quot;: &quot;Tortoise, if he were trying which word sounded best. Some of the deepest contempt. &#039;I&#039;ve seen hatters before,&#039; she said to Alice; and Alice looked all round the court and got behind him, and said.&quot;,
+            &quot;blockers&quot;: &quot;Hatter with a soldier on each side, and opened their eyes and mouths so VERY remarkable in that; nor did Alice think it so quickly that the cause of this elegant thimble&#039;; and, when it had made. &#039;He.&quot;,
+            &quot;questions&quot;: &quot;Alice. &#039;Come on, then!&#039; roared the Queen, &#039;and he shall tell you my adventures--beginning from this morning,&#039; said Alice desperately: &#039;he&#039;s perfectly idiotic!&#039; And she began again: &#039;Ou est ma.&quot;,
+            &quot;comments&quot;: &quot;Alice felt a little ledge of rock, and, as there was nothing else to say \&quot;HOW DOTH THE LITTLE BUSY BEE,\&quot; but it was written to nobody, which isn&#039;t usual, you know.&#039; Alice had never been so much.&quot;,
+            &quot;created&quot;: {
+                &quot;human&quot;: &quot;0 seconds ago&quot;,
+                &quot;timestamp&quot;: 1713094155,
+                &quot;string&quot;: &quot;2024-04-14 11:29:15&quot;,
+                &quot;local&quot;: &quot;2024-04-14T11:29:15&quot;
+            }
+        }
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-standups" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-standups"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-standups"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-standups" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-standups">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-standups" data-method="POST"
+      data-path="api/standups"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-standups', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-standups"
+                    onclick="tryItOut('POSTapi-standups');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-standups"
+                    onclick="cancelTryOut('POSTapi-standups');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-standups"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/standups</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-standups"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-standups"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>mood</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="mood"                data-endpoint="POSTapi-standups"
+               value="neutral"
+               data-component="body">
+    <br>
+<p>The mood of the user to be submitted to the stand-up. Example: <code>neutral</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>happy</code></li> <li><code>sad</code></li> <li><code>excited</code></li> <li><code>frustrated</code></li> <li><code>tired</code></li> <li><code>neutral</code></li> <li><code>angry</code></li> <li><code>anxious</code></li> <li><code>optimistic</code></li> <li><code>pensive</code></li> <li><code>surprised</code></li> <li><code>sick</code></li> <li><code>confident</code></li> <li><code>disappointed</code></li> <li><code>amused</code></li> <li><code>relieved</code></li> <li><code>indifferent</code></li> <li><code>grateful</code></li> <li><code>inspired</code></li> <li><code>confused</code></li></ul>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>tasks</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="tasks"                data-endpoint="POSTapi-standups"
+               value="Today I will be working on the OpenAPI Specification."
+               data-component="body">
+    <br>
+<p>The list of tasks the user is planning on working on today. Markdown is supported. Example: <code>Today I will be working on the OpenAPI Specification.</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>blockers</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="blockers"                data-endpoint="POSTapi-standups"
+               value="I am currently being blocked by front-end playing with crayons."
+               data-component="body">
+    <br>
+<p>A list of things that are blocking the user from progressing. Markdown is supported. Example: <code>I am currently being blocked by front-end playing with crayons.</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>questions</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="questions"                data-endpoint="POSTapi-standups"
+               value="How much wood, could a woodchuck chuck, if a woodchuck, could chuck wood."
+               data-component="body">
+    <br>
+<p>A list of questions that the user wants information on, these could be anything. Markdown is supported. Example: <code>How much wood, could a woodchuck chuck, if a woodchuck, could chuck wood.</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>comments</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="comments"                data-endpoint="POSTapi-standups"
+               value="Going to the Dentist at 2pm, will make up hours later."
+               data-component="body">
+    <br>
+<p>Any comments that the user wants to add to their stand-up that may be useful. Example: <code>Going to the Dentist at 2pm, will make up hours later.</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>department</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="department"                data-endpoint="POSTapi-standups"
+               value="1234-1234-1234-1234"
+               data-component="body">
+    <br>
+<p>The Unique Identifier for the department that the user is adding their stand up to. Example: <code>1234-1234-1234-1234</code></p>
+        </div>
+        </form>
 
             
 

@@ -6,6 +6,7 @@ namespace App\Models;
 
 use App\Enums\Mood;
 use Carbon\CarbonInterface;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -56,6 +57,54 @@ final class StandUp extends Model
         return $this->belongsTo(
             related: User::class,
             foreignKey: 'user_id',
+        );
+    }
+
+    /**
+     * @param Builder $builder
+     * @param string $name
+     * @return Builder
+     */
+    public function scopeDepartment(Builder $builder, string $name): Builder
+    {
+        return $builder->whereHas(
+            relation: 'department',
+            callback: fn (Builder $builder) => $builder->where(
+                column: 'name',
+                value: $name,
+            ),
+        );
+    }
+
+    /**
+     * @param Builder $builder
+     * @param string $name
+     * @return Builder
+     */
+    public function scopeUser(Builder $builder, string $name): Builder
+    {
+        return $builder->whereHas(
+            relation: 'user',
+            callback: fn (Builder $builder) => $builder->where(
+                column: 'name',
+                value: $name,
+            ),
+        );
+    }
+
+    /**
+     * @param Builder $builder
+     * @param CarbonInterface $date
+     * @return Builder
+     */
+    public function scopeSubmitted(Builder $builder, CarbonInterface $date): Builder
+    {
+        return $builder->whereBetween(
+            column: 'created_at',
+            values: [
+                $date->startOfDay(),
+                $date->endOfDay(),
+            ],
         );
     }
 

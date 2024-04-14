@@ -8,6 +8,10 @@ use App\Http\Payloads\Api\NewStandUp;
 use App\Models\StandUp;
 use App\Models\Team;
 
+use Illuminate\Support\Collection;
+use Spatie\QueryBuilder\AllowedFilter;
+use Spatie\QueryBuilder\AllowedInclude;
+use Spatie\QueryBuilder\AllowedSort;
 use function array_merge;
 
 use Illuminate\Database\DatabaseManager;
@@ -66,7 +70,7 @@ final readonly class StandUpRepository
     public function new(NewStandUp $data, string $user): Model|StandUp
     {
         return $this->database->transaction(
-            callback: fn () => StandUp::query()->create(
+            callback: fn () => $this->query()->create(
                 attributes: array_merge(
                     $data->toArray(),
                     [
@@ -89,6 +93,36 @@ final readonly class StandUpRepository
             callback: fn (Builder $builder) => $builder
                 ->where('team_id', $team->id),
         );
+    }
+
+    /** @return array<int,AllowedFilter> */
+    public function filters(): array
+    {
+        return [
+            AllowedFilter::exact(name: 'mood'),
+            AllowedFilter::scope(name: 'name'),
+            AllowedFilter::scope('submitted'),
+            AllowedFilter::scope(name: 'department'),
+        ];
+    }
+
+    /** @return array<int,Collection> */
+    public function includes(): array
+    {
+        return [
+            AllowedInclude::relationship(name: 'user'),
+            AllowedInclude::relationship(name: 'department'),
+            AllowedInclude::relationship(name: 'department.team'),
+        ];
+    }
+
+    /** @return array<int,AllowedSort> */
+    public function sort(): array
+    {
+        return [
+            AllowedSort::field(name: 'mood'),
+            AllowedSort::field(name: 'created_at'),
+        ];
     }
 
     /** @return Builder */

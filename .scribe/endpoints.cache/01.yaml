@@ -5,116 +5,6 @@ description: ''
 endpoints:
   -
     httpMethods:
-      - POST
-    uri: api/standups
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      mood:
-        name: mood
-        description: ''
-        required: true
-        example: excited
-        type: string
-        enumValues:
-          - happy
-          - sad
-          - excited
-          - frustrated
-          - tired
-          - neutral
-          - angry
-          - anxious
-          - optimistic
-          - pensive
-          - surprised
-          - sick
-          - confident
-          - disappointed
-          - amused
-          - relieved
-          - indifferent
-          - grateful
-          - inspired
-          - confused
-        exampleWasSpecified: false
-        custom: []
-      tasks:
-        name: tasks
-        description: 'Must be at least 2 characters.'
-        required: true
-        example: wyjjbbdxfbhtmohodebdsdzwfscofqxpdrbvavwxwziqqedigccr
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      blockers:
-        name: blockers
-        description: 'Must be at least 2 characters.'
-        required: false
-        example: nbnsjsxlbvpnyctrvdvmxtltsyjswwqzfygdaoxhvhtshyfdicfvfargjplqnwuniwtgknc
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      questions:
-        name: questions
-        description: 'Must be at least 2 characters.'
-        required: false
-        example: fopwejldqxdmhr
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      comments:
-        name: comments
-        description: 'Must be at least 2 characters.'
-        required: false
-        example: vkdgxsjfqwcpxwnbopaiqepmpdcykxpwfrhbwpkazdiypohhsntiabgmvpgg
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      department:
-        name: department
-        description: ''
-        required: true
-        example: illum
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanBodyParameters:
-      mood: excited
-      tasks: wyjjbbdxfbhtmohodebdsdzwfscofqxpdrbvavwxwziqqedigccr
-      blockers: nbnsjsxlbvpnyctrvdvmxtltsyjswwqzfygdaoxhvhtshyfdicfvfargjplqnwuniwtgknc
-      questions: fopwejldqxdmhr
-      comments: vkdgxsjfqwcpxwnbopaiqepmpdcykxpwfrhbwpkazdiypohhsntiabgmvpgg
-      department: illum
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
       - GET
     uri: 'api/standups/{uuid}'
     metadata:
@@ -134,13 +24,13 @@ endpoints:
         name: uuid
         description: ''
         required: true
-        example: 781ecdc6-e49d-317a-ae6a-36bd3af635cf
+        example: 9bcdf906-ba6f-4fcb-9789-a1dc14cc1fb0
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      uuid: 781ecdc6-e49d-317a-ae6a-36bd3af635cf
+      uuid: 9bcdf906-ba6f-4fcb-9789-a1dc14cc1fb0
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -183,13 +73,13 @@ endpoints:
         name: standUp_id
         description: 'The ID of the standUp.'
         required: true
-        example: laboriosam
+        example: 9bcdf906-ba6f-4fcb-9789-a1dc14cc1fb0
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      standUp_id: laboriosam
+      standUp_id: 9bcdf906-ba6f-4fcb-9789-a1dc14cc1fb0
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -197,7 +87,7 @@ endpoints:
         name: mood
         description: ''
         required: true
-        example: angry
+        example: sick
         type: string
         enumValues:
           - happy
@@ -226,7 +116,7 @@ endpoints:
         name: tasks
         description: 'Must be at least 2 characters.'
         required: true
-        example: tjwosfbpmqelthlptzvhanewizhvdmeagmktbjalcpfmeunyisngqrrrfqkcuoxnqsnkmgcdeofc
+        example: caxncyyokxpqxkhvzllmrqsprvljpnzrvlgrfnrvkbhqnutivfzjsbuoiqdvqwqxv
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -235,7 +125,7 @@ endpoints:
         name: blockers
         description: 'Must be at least 2 characters.'
         required: false
-        example: dhuiornstggwisruvhsjjeqkofzgvntomasqg
+        example: sramjjgfqztojpmejpaxcidliqrsgsuijvtedhteoasbvbvhvnpidzadoewvjhryjjwonsbvshjate
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -244,7 +134,7 @@ endpoints:
         name: questions
         description: 'Must be at least 2 characters.'
         required: false
-        example: syuwqszpzgvrhvkqrhzewccoynqinmqdebuthhtqjbqeeekhyvrmsjvgqvabqtyovgeieddbzm
+        example: lzosfiixyhnkgs
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -253,7 +143,7 @@ endpoints:
         name: comments
         description: 'Must be at least 2 characters.'
         required: false
-        example: zjtwgwnbcrcblpkipgjouotmactjaljg
+        example: zjrgkcrfqlgagrgtyjsdvfbybwyikxuucroairqfkphpxotaznuqwmkekbzxw
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -262,18 +152,18 @@ endpoints:
         name: department
         description: ''
         required: true
-        example: corrupti
+        example: aut
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      mood: angry
-      tasks: tjwosfbpmqelthlptzvhanewizhvdmeagmktbjalcpfmeunyisngqrrrfqkcuoxnqsnkmgcdeofc
-      blockers: dhuiornstggwisruvhsjjeqkofzgvntomasqg
-      questions: syuwqszpzgvrhvkqrhzewccoynqinmqdebuthhtqjbqeeekhyvrmsjvgqvabqtyovgeieddbzm
-      comments: zjtwgwnbcrcblpkipgjouotmactjaljg
-      department: corrupti
+      mood: sick
+      tasks: caxncyyokxpqxkhvzllmrqsprvljpnzrvlgrfnrvkbhqnutivfzjsbuoiqdvqwqxv
+      blockers: sramjjgfqztojpmejpaxcidliqrsgsuijvtedhteoasbvbvhvnpidzadoewvjhryjjwonsbvshjate
+      questions: lzosfiixyhnkgs
+      comments: zjrgkcrfqlgagrgtyjsdvfbybwyikxuucroairqfkphpxotaznuqwmkekbzxw
+      department: aut
     fileParameters: []
     responses: []
     responseFields: []
@@ -303,13 +193,13 @@ endpoints:
         name: standUp_id
         description: 'The ID of the standUp.'
         required: true
-        example: in
+        example: 9bcdf906-ba6f-4fcb-9789-a1dc14cc1fb0
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      standUp_id: in
+      standUp_id: 9bcdf906-ba6f-4fcb-9789-a1dc14cc1fb0
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
